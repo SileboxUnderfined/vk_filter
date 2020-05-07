@@ -12,7 +12,7 @@
     ],
     "browser_action": {
         "default_title":"kek",
-        "default_icon":"16x16.png",
+        "default_icon":"not_code/VK_Filter_Logo.png",
         "default_popup":"poppup.html"
     },   
     "background": {
