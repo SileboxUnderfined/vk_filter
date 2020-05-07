@@ -3,7 +3,6 @@
     "name":"jej",
     "description":"lolka",
     "version":"1.0",
-    "icons": {"16":"16x16.png"},
     "permissions":[
         "activeTab",
         "tabs",
