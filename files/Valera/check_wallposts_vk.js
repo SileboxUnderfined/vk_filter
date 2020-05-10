@@ -2,7 +2,7 @@
 
 function init() {
     /* объявляю глобальные переменные */
-    window.kekarray = ["короче", "коммунист", "Поздравляем", "Оперативная", "COVID-19", "Коронавирус", "Видеозаписи", "МЕДИТИРОВАТЬ", "СЕРИАЛ", "ПЕРЕДАЧИ"];
+    window.kekarray = ["короче", "коммунист", "Поздравляем", "Оперативная", "COVID-19", "Коронавирус", "Видеозаписи", "МЕДИТИРОВАТЬ", "СЕРИАЛ", "ПЕРЕДАЧИ", "Деньги", "Сыра", "Эх"];
     window.ammountOfFilteredPosts = 0;
     /* нахожу элементы */
     const wall_post_text_el = document.getElementsByClassName('wall_post_text');
@@ -14,10 +14,22 @@ function init() {
         // console.log(wall_post_text_el[i].innerText);
         textes_array.push(wall_post_text_el[i].innerText); // заполняем массив textes_array текстом из записей
     }
+    for (let i = 0; i < 2; i++) {
+        textes_array.pop();
+    }    
     for (let i in ui_actions_el) {
-        if (ui_actions_el[i].innerText === "Это не интересно") {
-            // console.log(ui_actions_el[i]);
-            button_not_interested.push(ui_actions_el[i]); // заполняем массив button_not_interested кнопками "Это не интересно"
+        let onclc;
+        try {
+            onclc = ui_actions_el[i].getAttribute("onclick");
+        } catch (e) {
+            null
+        }   
+        //console.log(onclc);
+        if (onclc != null && onclc.includes("feed.ignoreItem") == true) {
+            if (onclc.includes("return false;") == true) {
+                onclc = onclc.replace("return false;", " ");
+            }
+            button_not_interested.push(onclc)
         }
     }
     /* вывожу статы массивов */
@@ -49,20 +61,11 @@ function check_textes_array() {
 }
 
 function create_buttons_array() {
-
-    let btns_array = main_data[1];
-    let cleared_btns_array = new Array();
-    let txts_array = main_data[0];
-
-    for (let i in btns_array) {
-        for (let o in txts_array) {
-            if (txts_array[o][0] == i) {
-                cleared_btns_array.push(btns_array[i]);
-            }
-        }
+    let textes_array = main_data[0];
+    let button_not_interested = main_data[1];
+    for (let i in textes_array) {
+        eval(button_not_interested[i]);
     }
-
-    console.log(cleared_btns_array);
 }
 
 function main() {
