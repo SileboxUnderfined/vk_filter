@@ -50,7 +50,7 @@ function readfile() {
         });
 
         let jsonstring = reader.readAsText(file);
-        jsonstring = JSON.parse(jsonstring);
+        localStorage.setItem('arrofexceptions',jsonstring);
         console.log(jsonstring + ' ' + typeof(jsonstring));
 }
 
