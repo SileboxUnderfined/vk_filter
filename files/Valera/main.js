@@ -1,12 +1,12 @@
 "use strict";
 
 const buttonstart_el = document.getElementById('startbtn');
-const readbutton_el = document.getElementById('readbutton');
 const createjson_el = document.getElementById('createjson');
+const fileinp = document.getElementById('file_inp');
 
 buttonstart_el.addEventListener('click',start, false);
-readbutton_el.addEventListener('click',readfile,false);
 createjson_el.addEventListener('click',receiveTextFrom,false);
+fileinp.addEventListener('change', readfile, false);
 
 window.kekarray = Array();
 
@@ -23,35 +23,16 @@ function start() {
 }
 
 function readfile() {
-        if (document.querySelector('file_inp').files.length == 0) {
-                console.log('no file found');
-                return;
-        }
-        let file = document.querySelector('file_inp').files[0];
+        console.log(fileinp.files[0]);
+        let file = fileinp.files[0];
         let reader = new FileReader();
-        reader.addEventListener('loadstart',function() {
-                console.log('началось чтение файла');
+        reader.addEventListener('load', function(e) {
+                let result = e.target.result;
+                localStorage.setItem('arrofexceptions',result);
+                console.log(result);     
+                init();   
         });
-
-        reader.addEventListener('load',function(e) {
-                let jsonstring = e.target.result;
-                return jsonstring;
-        });
-
-        reader.addEventListener('error',function(){
-                console.log('ошибка чтения файла');
-        });
-        
-        reader.addEventListener('progress',function(e){
-                if (e.lengthComputable == true) {
-                        let percent_read = Math.floor((e.loaded / e.total) * 100);
-                        console.log(`процентов загружено - ${percent_read}`);
-                }
-        });
-
-        let jsonstring = reader.readAsText(file);
-        localStorage.setItem('arrofexceptions',jsonstring);
-        console.log(jsonstring + ' ' + typeof(jsonstring));
+        reader.readAsText(file);
 }
 
 function receiveTextFrom() {
