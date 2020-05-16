@@ -1,0 +1,118 @@
+h1 {
+    text-align: center;
+    font-style: bold;
+    font-size: 24pt;
+    font-family: 'OpenSansBold';
+}
+
+h2 {
+    font-size: 20pt;
+    font-weight: normal;
+    text-align: justify;
+    font-family: 'OpenSansLight';
+}
+
+#main {
+    padding: 50px;
+}
+
+#buttons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 10em;
+    font-size: x-large;
+}
+
+#acceptdiv {
+    width: 70%;
+    height: auto;
+    text-align: center;
+}
+
+#accept {
+    width: 100%;
+    font-family: 'OpenSansLight';
+}
+
+@font-face {
+    font-family: 'OpenSansLight';
+    src: url('OpenSans-Light.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('OpenSans-Bold.ttf');
+}
+
+.container {
+    font-family: 'OpenSansLight';
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked~.checkmark {
+    background-color: rgb(77, 161, 230);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+button {
+    background-color: white;
+    transition-duration: 0.4s;
+    color: black;
+    border: 2px solid rgb(77, 161, 230);
+}
+
+/*button:hover {
+    background-color: rgb(77, 161, 230);
+    color: white;
+}*/

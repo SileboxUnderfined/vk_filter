@@ -1,15 +1,15 @@
 {
     "manifest_version":2,
-    "name":"vk_filter",
+    "name":"VKFilter",
     "description":"данное расширение фильтрует записи в ленте.",
     "version":"1.0",
     "permissions":[
         "activeTab",
         "tabs",
-        "http://www.vk.com/feed"
+        "http://www.vk.com/"
     ],
     "browser_action": {
-        "default_title":"VK Filter",
+        "default_title":"VKFilter",
         "default_icon":"VK_Filter_Logo.png",
         "default_popup":"poppup.html"
     }   

@@ -11,6 +11,9 @@ fileinp.addEventListener('change', readfile, false);
 window.kekarray = Array();
 
 function init() {
+    if (localStorage.getItem('inited') == null) {
+        chrome.tabs.create({url: 'usr_agreement.html', selected: true});
+    }
     if (localStorage.getItem('arrofexceptions') != null) {
         document.forms.getkeywords.elements.txtarea.value = localStorage.getItem('arrofexceptions');
     }
