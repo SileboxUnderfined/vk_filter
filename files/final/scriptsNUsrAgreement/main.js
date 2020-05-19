@@ -12,7 +12,7 @@ window.kekarray = Array();
 
 function init() {
     if (localStorage.getItem('inited') == null) {
-        chrome.tabs.create({url: 'usr_agreement.html', selected: true});
+        chrome.tabs.create({url: 'usrAgreement/usr_agreement.html', selected: true});
     }
     if (localStorage.getItem('arrofexceptions') != null) {
         document.forms.getkeywords.elements.txtarea.value = localStorage.getItem('arrofexceptions');
@@ -21,7 +21,8 @@ function init() {
 
 function start() {
     if (document.forms.getkeywords.elements.txtarea.value != "") {
-        receiveTextFrom();
+        let txtfromarea = document.forms.getkeywords.elements.txtarea.value;
+        window.kekarray = txtfromarea.split(",");
     }
     chrome.tabs.query({ url: "https://vk.com/feed" }, function (tabs) {
         console.log(tabs);
@@ -31,7 +32,7 @@ function start() {
             console.log(kekarray);
             let kkekarray = JSON.stringify(kekarray);
             chrome.tabs.executeScript(tabs.id, { code: ('window.kekarray = [' + kkekarray + '];') });
-            chrome.tabs.executeScript(tabs.id, { file: 'check_wallposts_vk.js' });
+            chrome.tabs.executeScript(tabs.id, { file: 'scriptsNUsrAgreement/check_wallposts_vk.js' });
         }
     });
 }
