@@ -11,6 +11,12 @@ h2 {
     text-align: justify;
     font-family: 'OpenSansLight';
 }
+a {
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+    font-family: "OpenSansLight";
+}
 
 #main {
     padding: 50px;
@@ -20,7 +26,7 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     width: 10em;
-    font-size: x-large;
+    font-size: xx-large;
 }
 
 #acceptdiv {
@@ -32,6 +38,10 @@ h2 {
 #accept {
     width: 100%;
     font-family: 'OpenSansLight';
+}
+
+#CopyrightText {
+    text-align: center;
 }
 
 @font-face {

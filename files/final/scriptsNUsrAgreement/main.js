@@ -12,7 +12,7 @@ window.kekarray = Array();
 
 function init() {
     if (localStorage.getItem('inited') == null) {
-        chrome.tabs.create({url: 'usrAgreement/usr_agreement.html', selected: true});
+        chrome.tabs.create({url: 'scriptsNUsrAgreement/usrAgreement/usr_agreement.html', selected: true});
     }
     if (localStorage.getItem('arrofexceptions') != null) {
         document.forms.getkeywords.elements.txtarea.value = localStorage.getItem('arrofexceptions');

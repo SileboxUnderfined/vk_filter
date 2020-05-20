@@ -27,7 +27,7 @@ function check_textes_array() {
 
     for (let i in textes_array) { // чекаем элементы в массиве с текстами записей
         for (let o in kekarray) { // чекаем элементы в массиве с исключениями
-            if (textes_array[i] != undefined && textes_array[i].indexOf(kekarray[o]) != -1) {
+            if (textes_array[i] != undefined && textes_array[i].includes(kekarray[o])) {
                 console.log('совпадение: ' + textes_array[i]);
                 cleared_textes_array.push([Number(i), textes_array[i]]);
                 ammount += 1
