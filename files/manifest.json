@@ -1,21 +1,21 @@
 {
     "manifest_version":2,
-    "name":"jej",
-    "description":"lolka",
+    "name":"VKFuncs",
+    "description":"данное расширение фильтрует записи в ленте.",
     "version":"1.0",
     "permissions":[
         "activeTab",
-        "tabs",
-        "http://www.vk.com/",
-        "tabCapture"
+        "tabs"
     ],
     "browser_action": {
-        "default_title":"kek",
-        "default_icon":"not_code/VK_Filter_Logo.png",
-        "default_popup":"poppup.html"
-    },   
-    "background": {
-        "scripts":["check_tab.js", "check_wallposts_vk.js"],
-        "persistent": false
-    } 
+        "default_title":"VKFuncs",
+        "default_icon":"VK_Filter_Logo.png",
+        "default_popup":"popup.html"
+    },
+    "icons": {
+        "16":"VK_Filter_Logo.png",
+        "32":"VK_Filter_Logo.png",
+        "48":"VK_Filter_Logo.png",
+        "128":"VK_Filter_Logo.png"
+    }
 }
